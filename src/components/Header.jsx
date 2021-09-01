@@ -7,7 +7,7 @@ function Header() {
     const isHome = pathname === "/";
 
     return (
-        <header className="m-5 mx-20 bg-gradient-to-b from-gray-50 to-gray-100">
+        <header className="m-5 mx-10 sm:mx-10 md:mx-20 bg-gradient-to-b from-gray-50 to-gray-100">
             <div className="container mx-auto h-full flex items-center justify-between">
                 <h1 className="font-mono text-gray-600 font-black">Rick and Morty CRUD</h1>
                 {isHome && (

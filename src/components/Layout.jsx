@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
         <div className="h-screen">
             <Header />
             <div className="bg-gray-800">
-                <div className="min-h-screen py-5 sm:px-10 md:px-20">{children}</div>
+                <div className="min-h-screen py-5 sm:px-10 px-10 md:px-20">{children}</div>
             </div>
         </div>
     );
