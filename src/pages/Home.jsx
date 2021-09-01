@@ -20,7 +20,7 @@ function Home() {
             ) : (
                 <div className="flex h-screen justify-center items-center">
                     <p className="font-mono text-white font-extrabold text-3xl">
-                        No hay personajes.
+                        Agrega un personaje.
                     </p>
                 </div>
             )}
