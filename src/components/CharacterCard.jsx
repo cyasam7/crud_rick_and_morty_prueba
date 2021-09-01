@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as Actions from "../redux/actions";
 
-const CharacterCard = (props) => {
+const CharacterCard = ({ change, ...props }) => {
     const dispatch = useDispatch();
 
     const handleDelete = () => {
@@ -30,20 +30,22 @@ const CharacterCard = (props) => {
                             <p>{props.type}</p>
                         </>
                     )}
-                    <div className="flex flex-wrap gap-2">
-                        <button
-                            onClick={handleDelete}
-                            className="px-3 py-2 mt-2 bg-red-600 rounded-lg hover:bg-red-500"
-                        >
-                            Eliminar
-                        </button>
-                        <Link
-                            to={`/editar/${props.id}`}
-                            className="px-3 py-2 mt-2 bg-yellow-600 rounded-lg hover:bg-yellow-500"
-                        >
-                            Editar
-                        </Link>
-                    </div>
+                    {!change && (
+                        <div className="flex flex-wrap gap-2">
+                            <button
+                                onClick={handleDelete}
+                                className="px-3 py-2 mt-2 bg-red-600 rounded-lg hover:bg-red-500"
+                            >
+                                Eliminar
+                            </button>
+                            <Link
+                                to={`/editar/${props.id}`}
+                                className="px-3 py-2 mt-2 bg-yellow-600 rounded-lg hover:bg-yellow-500"
+                            >
+                                Editar
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

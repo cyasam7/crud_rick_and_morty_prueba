@@ -25,7 +25,7 @@ function Editar() {
 
     const handleSubmit = (values) => {
         dispatch(Actions.updateCharacter(id, values));
-        history.goBack();
+        history.push("/creados");
     };
 
     const formik = useFormik({

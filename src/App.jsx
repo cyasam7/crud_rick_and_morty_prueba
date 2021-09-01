@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Agregar from "./pages/Agregar";
 import Editar from "./pages/Editar";
 import Home from "./pages/Home";
+import Listado from "./pages/Listado";
 
 import { useDispatch } from "react-redux";
 import * as Actions from "./redux/actions";
@@ -20,7 +21,8 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Layout>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Listado} />
+                    <Route exact path="/creados" component={Home} />
                     <Route exact path="/agregar" component={Agregar} />
                     <Route exact path="/editar/:id" component={Editar} />
                 </Layout>

@@ -20,25 +20,25 @@ export const listCharacters = () => async (dispatch) => {
         const { data } = await axios.get("https://rickandmortyapi.com/api/character");
         dispatch({
             type: LIST_CHARACTERS,
-            payload: data.results,
+            payload: { array: data.results, page: 1, count: data.info.count },
         });
     } catch (error) {
         console.log(error);
     }
 };
-export const nextPageCharacters = () => async (dispatch, state) => {
-    const nextPage = state.count + 1;
 
+export const NEXT_PAGE = "NEXT_PAGE";
+export const nextPageCharacters = (nextPage) => async (dispatch) => {
     try {
         const { data } = await axios.get(
             `https://rickandmortyapi.com/api/character/?page=${nextPage}`
         );
 
         dispatch({
-            type: LIST_CHARACTERS,
+            type: NEXT_PAGE,
             payload: {
                 page: nextPage,
-                array: data,
+                array: data.results,
             },
         });
     } catch (error) {

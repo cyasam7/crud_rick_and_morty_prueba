@@ -22,7 +22,7 @@ function Agregar() {
     const handleSubmit = (values, { setErrors }) => {
         dispatch(Actions.createCharacter(values, setErrors))
             .then(() => {
-                history.goBack();
+                history.push("/creados");
             })
             .catch((err) => {
                 const message = err?.response?.data?.error;

@@ -2,6 +2,11 @@ import * as Actions from "../actions";
 
 const initialState = {
     characters: [],
+    list: {
+        array: [],
+        page: 1,
+        count: 0,
+    },
     open: false,
     id: "",
 };
@@ -11,7 +16,20 @@ function Reducer(state = initialState, action) {
         case Actions.LIST_CHARACTERS:
             return {
                 ...state,
-                characters: action.payload,
+                list: {
+                    array: action.payload.array,
+                    page: action.payload.page,
+                    count: action.payload.count,
+                },
+            };
+        case Actions.NEXT_PAGE:
+            return {
+                ...state,
+                list: {
+                    ...state.list,
+                    array: action.payload.array,
+                    page: action.payload.page,
+                },
             };
         case Actions.CREATE_CHARATER:
             return {

@@ -65,13 +65,13 @@ function Form({ formik }) {
                 formik={formik}
                 name="status"
             ></Select>
-            <Input
+            {/*  <Input
                 value={formik.values.species}
                 name="species"
                 formik={formik}
                 placeholder="Especie"
-            />
-            <Input value={formik.values.type} name="type" formik={formik} placeholder="Tipo" />
+            /> */}
+            {/* <Input value={formik.values.type} name="type" formik={formik} placeholder="Tipo" /> */}
             <Select
                 value={formik.values.gender}
                 values={optionsGenero}
