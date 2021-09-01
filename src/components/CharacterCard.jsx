@@ -8,7 +8,7 @@ const CharacterCard = ({ change, ...props }) => {
     const dispatch = useDispatch();
 
     const handleDelete = () => {
-        dispatch(Actions.selectCharacter(props.id));
+        dispatch(Actions.selectCharacter(props._id));
         dispatch(Actions.changeModalState(true));
     };
 
@@ -39,7 +39,7 @@ const CharacterCard = ({ change, ...props }) => {
                                 Eliminar
                             </button>
                             <Link
-                                to={`/editar/${props.id}`}
+                                to={`/editar/${props._id}`}
                                 className="px-3 py-2 mt-2 bg-yellow-600 rounded-lg hover:bg-yellow-500"
                             >
                                 Editar

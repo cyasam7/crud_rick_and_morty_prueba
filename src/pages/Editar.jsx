@@ -35,7 +35,7 @@ function Editar() {
     });
 
     useEffect(() => {
-        const character = characters.find((i) => i.id === parseInt(id));
+        const character = characters.find((i) => i._id === id);
         if (character) {
             formik.initialValues.gender = character.gender.toLowerCase();
             formik.initialValues.name = character.name;

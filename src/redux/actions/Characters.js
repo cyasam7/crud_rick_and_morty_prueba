@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 } from "uuid";
 
 export const GET_INITIAL_CHARACTERS = "GET_INITIAL_CHARACTERS";
 export const getInitialCharacters = () => (dispatch) => {
@@ -56,7 +57,7 @@ export const createCharacter = (values, setErrors) => async (dispatch, state) =>
     );
     const existCharacter = data.info.count > 0;
     if (existCharacter) {
-        const payload = [...characters, data.results[0]];
+        const payload = [...characters, { _id: v4(), ...data.results[0] }];
         localStorage.setItem("characters", JSON.stringify(payload));
         dispatch({ type: CREATE_CHARATER, payload });
     }
@@ -66,7 +67,7 @@ export const UPDATE_CHARACTER = "UPDATE_CHARACTER";
 export const updateCharacter = (id, values) => async (dispatch, state) => {
     const { characters } = state().characters;
 
-    const index = characters.findIndex((i) => i.id === parseInt(id));
+    const index = characters.findIndex((i) => i._id === id);
 
     characters[index] = { ...characters[index], ...values };
 
@@ -87,7 +88,7 @@ export const DELETE_CHARACTER = "DELETE_CHARACTER";
 export const deleteCharacter = () => async (dispatch, state) => {
     const { characters, id } = state().characters;
 
-    const newCharacters = characters.filter((character) => character.id !== id);
+    const newCharacters = characters.filter((character) => character._id !== id);
 
     localStorage.setItem("characters", JSON.stringify(newCharacters));
     dispatch({ type: DELETE_CHARACTER, payload: newCharacters });
