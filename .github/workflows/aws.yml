@@ -6,14 +6,13 @@ on:
       - main
 
 env:
-  AWS_REGION: us-west-2                   # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: us-west-2                   
   ECR_REPOSITORY: rick
   ECS_SERVICE: services-front
   ECS_CLUSTER: cluster-pruebas
-  ECS_TASK_DEFINITION: task-definition.json  # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: rick
-                                               # containerDefinitions section of your task definition
+  ECS_TASK_DEFINITION: task-definition.json 
+                                             
+  CONTAINER_NAME: crud_rick_and_morty_prueba
 
 jobs:
   deploy:
