@@ -1,12 +1,21 @@
 {
     "ipcMode": null,
-    "executionRoleArn": null,
+    "executionRoleArn": "arn:aws:iam::686349734350:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
-            "dnsSearchDomains": null,
+            "dnsSearchDomains": [],
             "environmentFiles": null,
-            "logConfiguration": null,
-            "entryPoint": null,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "secretOptions": null,
+                "options": {
+                    "awslogs-group": "/ecs/frontend",
+                    "awslogs-region": "us-west-2",
+                    "awslogs-create-group": "true",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "entryPoint": [],
             "portMappings": [
                 {
                     "hostPort": 3000,
@@ -14,22 +23,22 @@
                     "containerPort": 3000
                 }
             ],
-            "command": null,
+            "command": [],
             "linuxParameters": null,
             "cpu": 0,
             "environment": [],
             "resourceRequirements": null,
             "ulimits": null,
-            "dnsServers": null,
+            "dnsServers": [],
             "mountPoints": [],
             "workingDirectory": null,
             "secrets": null,
-            "dockerSecurityOptions": null,
+            "dockerSecurityOptions": [],
             "memory": null,
             "memoryReservation": null,
             "volumesFrom": [],
             "stopTimeout": null,
-            "image": "686349734350.dkr.ecr.us-west-2.amazonaws.com/rick-and-morty",
+            "image": "686349734350.dkr.ecr.us-west-2.amazonaws.com/rick",
             "startTimeout": null,
             "firelensConfiguration": null,
             "dependsOn": null,
@@ -37,38 +46,83 @@
             "interactive": null,
             "healthCheck": null,
             "essential": true,
-            "links": null,
+            "links": [],
             "hostname": null,
             "extraHosts": null,
             "pseudoTerminal": null,
             "user": null,
             "readonlyRootFilesystem": null,
             "dockerLabels": null,
-            "systemControls": null,
+            "systemControls": [],
             "privileged": null,
-            "name": "rick-and-morty"
+            "name": "rick"
         }
     ],
     "placementConstraints": [],
     "memory": "512",
-    "taskRoleArn": null,
+    "taskRoleArn": "arn:aws:iam::686349734350:role/ecsTaskExecutionRole",
     "compatibilities": ["EXTERNAL", "EC2"],
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:686349734350:task-definition/algo:1",
-    "family": "algo",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:686349734350:task-definition/frontend:4",
+    "family": "frontend",
     "requiresAttributes": [
         {
             "targetId": null,
             "targetType": null,
             "value": null,
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
             "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "pidMode": null,
     "requiresCompatibilities": ["EC2"],
-    "networkMode": null,
-    "runtimePlatform": null,
+    "networkMode": "bridge",
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX",
+        "cpuArchitecture": "X86_64"
+    },
     "cpu": "1024",
-    "revision": 1,
+    "revision": 4,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,

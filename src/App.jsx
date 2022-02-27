@@ -15,6 +15,7 @@ function App() {
     useEffect(() => {
         dispatch(Actions.getInitialCharacters());
         //dispatch(Actions.listCharacters());
+        console.log("Hola");
     }, [dispatch]);
 
     return (
