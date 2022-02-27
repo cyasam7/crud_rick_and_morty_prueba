@@ -53,8 +53,8 @@
     "memory": "512",
     "taskRoleArn": null,
     "compatibilities": ["EXTERNAL", "EC2"],
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:686349734350:task-definition/front-rick-task:1",
-    "family": "front-rick-task",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:686349734350:task-definition/algo:1",
+    "family": "algo",
     "requiresAttributes": [
         {
             "targetId": null,
